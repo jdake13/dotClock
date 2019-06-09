@@ -153,8 +153,6 @@ function draw() {
   endShape()
   push()
   noStroke()
-  fill('yellow')
-  //translate(g,q)
   let sun = new Circles(g, q, 253, 184, 19, d)
   sun.drawCircles()
   pop()
