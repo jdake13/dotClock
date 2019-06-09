@@ -52,8 +52,8 @@ function setup() {
       k++
     }
   }
-  tenscircles[4].x = hsw + hsw / 2
-  tenscircles[4].y = -100 - hsh / 6
+  tenscircles[4].x = hsw + hsw / 2.1
+  tenscircles[4].y = -75 - hsh / 6
 
 }
 
