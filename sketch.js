@@ -12,12 +12,15 @@ let d
 function setup() {
   smooth()
   createCanvas(screen.width, screen.height)
-  amp = width/8
+  amp = width / 8
   d = 50
-  for (i=0; i<screen.width; i += 1){
+  for (i = 0; i < screen.width; i += 1) {
 
-    let u = -sin((i*PI)/width) * amp
-    locations[i] = {x: i, y: u}
+    let u = -sin((i * PI) / width) * amp
+    locations[i] = {
+      x: i,
+      y: u
+    }
 
   }
   hsw = screen.width / 3
@@ -65,8 +68,8 @@ function draw() {
   var dt = new Date();
   var secs = dt.getSeconds() + (60 * dt.getMinutes()) + (60 * 60 * dt.getHours());
   let g = map(secs, 0, 86400, 0, width)
-  let p = sin((secs*PI)/86400)
-  let q = -sin((g*PI)/width) * amp
+  let p = sin((secs * PI) / 86400)
+  let q = -sin((g * PI) / width) * amp
   h = hour()
   m = minute()
   s = second()
@@ -141,18 +144,21 @@ function draw() {
       hlightbox[h].on = false
     }
   }
-  translate(0,-screen.height)
-  translate(0,amp+(d/2)+5)
+  translate(0, -screen.height)
+  translate(0, amp + (d / 2) + 5)
   beginShape()
   noFill()
-  stroke(255-(p*255))
+  stroke(255 - (p * 255))
   strokeWeight(5)
-  for (i=0; i < width; i += 1){
-  vertex(locations[i].x, locations[i].y)
+  for (i = 0; i < width; i += 1) {
+    vertex(locations[i].x, locations[i].y)
   }
   endShape()
   push()
-  noStroke()
+  let rays = new Ray(g, q)
+  rays.drawRays()
+  pop()
+  push()
   let sun = new Circles(g, q, 253, 184, 19, d)
   sun.drawCircles()
   pop()
