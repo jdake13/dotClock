@@ -12,7 +12,7 @@ let d
 function setup() {
   smooth()
   createCanvas(screen.width, screen.height)
-  amp = width/10
+  amp = width/8
   d = 50
   for (i=0; i<screen.width; i += 1){
 
@@ -25,7 +25,7 @@ function setup() {
   k = 0
   for (i = 0; i < 4; i++) {
     for (j = 0; j < 3; j++) {
-      hcircles[k] = new Circles((j * hsw / 3) + 70, (-i * hsh / 5) - 75, 109, 65, 244)
+      hcircles[k] = new Circles((j * hsw / 3) + 70, (-i * hsh / 5) - 75, 109, 65, 244, 95)
       hlightbox[k] = {
         on: false
       }
@@ -35,7 +35,7 @@ function setup() {
   k = 0
   for (i = 0; i < 3; i++) {
     for (j = 0; j < 2; j++) {
-      tenscircles[k] = new Circles((j * hsw / 2.25) + hsw / 4 + hsw, (-i * hsh / 3) - 75, 244, 65, 65)
+      tenscircles[k] = new Circles((j * hsw / 2.25) + hsw / 4 + hsw, (-i * hsh / 3) - 75, 244, 65, 65, 95)
       tenslightbox[k] = {
         on: false
       }
@@ -45,7 +45,7 @@ function setup() {
   k = 0
   for (i = 0; i < 3; i++) {
     for (j = 0; j < 3; j++) {
-      onescircles[k] = new Circles((j * hsw / 3) + 70 + (2 * hsw), (-i * hsh / 3.29) - 75, 66, 134, 244)
+      onescircles[k] = new Circles((j * hsw / 3) + 70 + (2 * hsw), (-i * hsh / 3.29) - 75, 66, 134, 244, 95)
       oneslightbox[k] = {
         on: false
       }
@@ -142,7 +142,7 @@ function draw() {
     }
   }
   translate(0,-screen.height)
-  translate(0,amp+d/2)
+  translate(0,amp+(d/2)+5)
   beginShape()
   noFill()
   stroke(255-(p*255))
@@ -154,7 +154,8 @@ function draw() {
   push()
   noStroke()
   fill('yellow')
-  translate(g,q)
-  circle(0,0,d)
+  //translate(g,q)
+  let sun = new Circles(g, q, 253, 184, 19, d)
+  sun.drawCircles()
   pop()
 }
