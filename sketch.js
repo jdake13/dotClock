@@ -71,6 +71,11 @@ function draw() {
   let p = sin((secs * PI) / 86400)
   let q = -sin((g * PI) / width) * amp
   h = hour()
+  if (h < 7 || h >= 19) {
+    background(0)
+  } else {
+    background(255)
+  }
   m = minute()
   s = second()
   om = m % 10
@@ -82,7 +87,6 @@ function draw() {
     h = h % 12
   }
   //let g = map(h, 0, 12, 0, 255*2)
-  background(p * 255)
   /*line(hsw, 0, hsw, -hsh)
   line(2 * hsw, 0, 2 * hsw, -hsh)*/
   function check() {
