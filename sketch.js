@@ -7,6 +7,7 @@ var hlightbox = []
 let locations = []
 let amp
 let d
+let c
 
 
 function setup() {
@@ -73,8 +74,10 @@ function draw() {
   h = hour()
   if (h < 7 || h >= 19) {
     background(0)
+    c = 255
   } else {
     background(255)
+    c = 0
   }
   m = minute()
   s = second()
@@ -152,7 +155,7 @@ function draw() {
   translate(0, amp + (d / 2) + 5)
   beginShape()
   noFill()
-  stroke(255 - (p * 255))
+  stroke(c)
   strokeWeight(5)
   for (i = 0; i < width; i += 1) {
     vertex(locations[i].x, locations[i].y)
